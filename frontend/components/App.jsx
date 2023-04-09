@@ -1,16 +1,18 @@
 import React from "react";
-import GreetingContainer from './greeting/greeting_container';
+// import GreetingContainer from './greeting/greeting_container';
+import Greeting from './greeting/greeting'
+import SessionForm from "./session/session_form";
 
 const App = () => {
     return (
     <div>
         <h1 id='app-title'>Ari Reads</h1>
+        <Route path='/' component={Greeting} />
         <Switch>
-            <AuthRoute path='/' component={GreetingContainer} />
-            <Route path='/signup' component={SignupContainer} />
-            <AuthRoute path='/login' component={LoginContainer} />
+            <Route path='/signup' component={SessionForm} />
+            <AuthRoute path='/login' component={SessionForm} />
         </Switch>
-        <ProtectedRoute path='/' component={LogoutContainer} />
+        {/* <ProtectedRoute path='/' component={LogoutContainer} /> */}
     </div>
     )
 };
