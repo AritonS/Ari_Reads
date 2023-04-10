@@ -4,12 +4,11 @@ class CreateBooks < ActiveRecord::Migration[5.2]
       t.references :list, foreign_key: true
       t.string :title
       t.string :author
-      t.integer :status, default: 0
+      t.integer :status
       t.integer :total_pages
       t.integer :current_page
 
       t.timestamps
     end
-    add_index :books, :title
   end
 end

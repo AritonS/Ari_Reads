@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_04_10_010932) do
+ActiveRecord::Schema.define(version: 2023_04_10_012514) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,13 +19,12 @@ ActiveRecord::Schema.define(version: 2023_04_10_010932) do
     t.bigint "list_id"
     t.string "title"
     t.string "author"
-    t.integer "status", default: 0
+    t.integer "status"
     t.integer "total_pages"
     t.integer "current_page"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["list_id"], name: "index_books_on_list_id"
-    t.index ["title"], name: "index_books_on_title"
   end
 
   create_table "lists", force: :cascade do |t|
