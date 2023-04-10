@@ -2,17 +2,17 @@ import { RECEIVE_BOOKS, RECEIVE_BOOK, REMOVE_BOOK } from '../actions/book_action
 
 const booksReducer = (state = {}, action) => {
     Object.freeze(state);
-    let newState = Object.assign({}, state);
+    let nextState = Object.assign({}, state);
 
     switch (action.type) {
         case RECEIVE_BOOKS:
             return action.books;
         case RECEIVE_BOOK:
-            newState[action.book.id] = action.book;
-            return newState;
+            nextState[action.book.id] = action.book;
+            return nextState;
         case REMOVE_BOOK:
-            delete newState[action.bookId];
-            return newState;
+            delete nextState[action.bookId];
+            return nextState;
         default:
             return state;
     }
