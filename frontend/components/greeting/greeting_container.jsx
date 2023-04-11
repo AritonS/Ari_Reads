@@ -1,13 +1,20 @@
 import { connect } from 'react-redux';
-import { logout } from '../actions/session_actions';
+import { logout } from '../../actions/session_actions';
 import Greeting from './greeting';
 
-const mapStateToProps = ({ entities, session }) => {
-    const currentUser = entities.users[session.id];
+// const mapStateToProps = ({ entities, session }) => {
+//     const currentUser = entities.users[session.id];
+//     return {
+//         currentUser,
+//     };
+// };
+
+const mapStateToProps = (state) => {
     return {
-        currentUser,
+        currentUser: state.entities && state.entities.users ? state.entities.users[state.session.id] : null
     };
 };
+
 
 const mapDispatchToProps = (dispatch) => ({
     logout: () => dispatch(logout()),
