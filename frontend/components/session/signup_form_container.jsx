@@ -1,14 +1,21 @@
 import { connect } from 'react-redux';
-import { signup } from '../../actions/session_actions';
-import SessionForm from './session_form';
+import createNewUser from '../../actions/session_actions';
+import SignupForm from './signup_form';
 
 const mapStateToProps = (state, ownProps) => ({
     errors: state.errors.session,
     formType: 'signup'
 });
 
-const mapDispatchToProps = (dispatch, ownProps) => ({
-    processForm: (user) => dispatch(signup(user))
-});
+// const mapDispatchToProps = (dispatch, ownProps) => ({
+//     createNewUser: (user) => dispatch(createNewUser(user))
+// });
 
-export default connect(mapStateToProps, mapDispatchToProps)(SessionForm);
+const mapDispatchToProps = (dispatch, ownProps) => {
+    console.log("createNewUser:", createNewUser); // Add this line
+    return {
+        createNewUser: (user) => dispatch(createNewUser(user))
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(SignupForm);
