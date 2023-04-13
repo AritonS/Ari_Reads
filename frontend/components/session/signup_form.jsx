@@ -4,6 +4,7 @@ import { Link, Redirect } from 'react-router-dom';
 class SignupForm extends React.Component {
     constructor(props) {
         super(props);
+        console.log('SignupForm props:', props);
         this.state = {
             username: "",
             password: ""
@@ -14,6 +15,7 @@ class SignupForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         console.log('Signup handleSubmit called');
+        console.log(this.props);
         const user = Object.assign({}, this.state);
         this.props.createNewUser(user);
     }
@@ -46,6 +48,15 @@ class SignupForm extends React.Component {
                             type="text"
                             value={this.state.username}
                             onChange={this.update("username")}
+                        />
+                    </label>
+                    <br />
+                    <label>
+                        Email:
+                        <input
+                            type="text"
+                            value={this.state.email}
+                            onChange={this.update("email")}
                         />
                     </label>
                     <br />

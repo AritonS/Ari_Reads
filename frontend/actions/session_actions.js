@@ -18,8 +18,19 @@ const receiveErrors = errors => ({
     errors
 });
 
+// export const createNewUser = formUser => dispatch => postUser(formUser)
+//     .then(user => dispatch(receiveCurrentUser(user)));
+
+// export const createNewUser = formUser => dispatch => {
+//     console.log('createNewUser action creator called with formUser:', formUser);
+//     return postUser(formUser)
+//         .then(user => dispatch(receiveCurrentUser(user)));
+// };
+
 export const createNewUser = formUser => dispatch => postUser(formUser)
-    .then(user => dispatch(receiveCurrentUser(user)));
+    .then(user => dispatch(receiveCurrentUser(user))
+    .catch(errors => dispatch(receiveErrors(errors.responseJSON))));
+
 
 export const login = formUser => dispatch => postSession(formUser)
     .then(user => dispatch(receiveCurrentUser(user)));

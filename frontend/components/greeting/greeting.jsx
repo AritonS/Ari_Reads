@@ -12,6 +12,7 @@ const Greeting = ({ currentUser, logout }) => {
     const loggedOutGreeting = () => (
         <div>
             <Link to="/signup">Sign Up</Link>
+            <br />
             <Link to="/login">Log In</Link>
         </div>
     );

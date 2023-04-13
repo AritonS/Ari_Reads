@@ -1,7 +1,5 @@
 import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
-import { login } from '../../actions/session_actions';
-
 
 class LoginForm extends React.Component {
     constructor(props) {

@@ -3,8 +3,8 @@ import GreetingContainer from './greeting/greeting_container';
 import Greeting from './greeting/greeting'
 import { Route, Switch } from "react-router-dom";
 import { AuthRoute, ProtectedRoute } from "../util/route_util";
-import SignupForm from "./session/signup_form";
-import LoginForm from "./session/login_form";
+import SignupForm from "./session/signup_form_container";
+import LoginForm from "./session/login_form_container";
 
 const App = () => {
     return (
@@ -13,9 +13,9 @@ const App = () => {
         <Route path='/' component={GreetingContainer} />
         <Switch>
             <Route path='/signup' component={SignupForm} />
+            <br />
             <AuthRoute path='/login' component={LoginForm} />
         </Switch>
-        {/* <ProtectedRoute path='/' component={LogoutContainer} /> */}
     </div>
     )
 };
