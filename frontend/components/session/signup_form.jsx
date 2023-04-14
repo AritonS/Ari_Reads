@@ -1,80 +1,58 @@
 import React from 'react';
-import { Link, Redirect } from 'react-router-dom';
 
 class SignupForm extends React.Component {
     constructor(props) {
         super(props);
-        console.log('SignupForm props:', props);
         this.state = {
             username: "",
+            email: "",
             password: ""
         };
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleSubmit(e) {
-        e.preventDefault();
-        console.log('Signup handleSubmit called');
-        console.log(this.props);
-        const user = Object.assign({}, this.state);
-        this.props.createNewUser(user);
+    handleInput(type) {
+        return (e) => {
+            this.setState({ [type]: e.target.value })
+        }
     }
 
-
-    update(field) {
-        return (e) => this.setState({ [field]: e.currentTarget.value });
+    handleSubmit(e) {
+        e.preventDefault();
+        this.props.createNewUser(this.state)
+        .then(() => this.props.history.push('/'))
     }
 
     render() {
-        if (this.props.loggedIn) {
-            return <Redirect to="/" />;
-        }
-
-        const errors = this.props.errors ? this.props.errors.map((error, idx) => (
-            <li key={`error-${idx}`}>{error}</li>
-        )) : null;
-
-        const formHeader = this.props.formType === "login" ? "Log in" : "Sign up";
-        const altFormLink = this.props.formType === "login" ? "/signup" : "/login";
-        const altFormText = this.props.formType === "login" ? "Sign up" : "Log in";
-
         return (
-            <div>
-                <h2>{formHeader}</h2>
-                <form onSubmit={this.handleSubmit}>
-                    <label>
-                        Username:
-                        <input
+            <div className='session-form'>
+                <h2>Sign Up</h2>
+                <form>
+                    <label>Username:
+                        <input 
                             type="text"
                             value={this.state.username}
-                            onChange={this.update("username")}
+                            onChange={this.handleInput('username')}
                         />
                     </label>
-                    <br />
-                    <label>
-                        Email:
-                        <input
+                    <label>Email:
+                        <input 
                             type="text"
                             value={this.state.email}
-                            onChange={this.update("email")}
+                            onChange={this.handleInput('email')}
                         />
                     </label>
-                    <br />
-                    <label>
-                        Password:
-                        <input
+                    <label>Password:
+                        <input 
                             type="password"
                             value={this.state.password}
-                            onChange={this.update("password")}
+                            onChange={this.handleInput('password')}
                         />
                     </label>
-                    <br />
-                    <input type="submit" value={formHeader} />
+                    <button onClick={this.handleSubmit}>Sign Up</button>
                 </form>
-                <Link to={altFormLink}>{altFormText}</Link>
-                <ul>{errors}</ul>
             </div>
-        );
+        )
     }
 }
 

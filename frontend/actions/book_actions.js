@@ -1,4 +1,4 @@
-import * as BookApiUtil from '../util/book_api_util';
+import * as BookApiUtil from '../utils/book_api_util';
 
 export const RECEIVE_BOOKS = 'RECEIVE_BOOKS';
 export const RECEIVE_BOOK = 'RECEIVE_BOOK';

@@ -1,4 +1,4 @@
-import { postUser, postSession, deleteSession } from '../util/session_api_util';
+import { postUser, postSession, deleteSession } from '../utils/session_api_util';
 
 export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
 export const LOGOUT_CURRENT_USER = 'LOGOUT_CURRENT_USER';
@@ -18,18 +18,8 @@ const receiveErrors = errors => ({
     errors
 });
 
-// export const createNewUser = formUser => dispatch => postUser(formUser)
-//     .then(user => dispatch(receiveCurrentUser(user)));
-
-// export const createNewUser = formUser => dispatch => {
-//     console.log('createNewUser action creator called with formUser:', formUser);
-//     return postUser(formUser)
-//         .then(user => dispatch(receiveCurrentUser(user)));
-// };
-
 export const createNewUser = formUser => dispatch => postUser(formUser)
-    .then(user => dispatch(receiveCurrentUser(user))
-    .catch(errors => dispatch(receiveErrors(errors.responseJSON))));
+    .then(user => dispatch(receiveCurrentUser(user)));
 
 
 export const login = formUser => dispatch => postSession(formUser)

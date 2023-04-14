@@ -1,7 +1,7 @@
-import * as UserApiUtil from '../util/user_api_util';
+import * as UserApiUtil from '../utils/user_api_util';
 
 export const RECEIVE_ALL_USERS = 'RECEIVE_ALL_USERS';
-export const RECEIVE_CURRENT_USER = 'RECEIVE_USER';
+export const RECEIVE_USER = 'RECEIVE_USER';
 export const REMOVE_CURRENT_USER = 'REMOVE_USER';
 export const LOGOUT_CURRENT_USER = 'LOGOUT_CURRENT_USER';
 
@@ -14,7 +14,7 @@ const receiveUsers = users => {
 
 const receiveUser = user => {
     return {
-        type: RECEIVE_CURRENT_USER,
+        type: RECEIVE_USER,
         user
     }
 }
@@ -38,7 +38,7 @@ export const fetchUser = userId => dispatch => {
 
 export const createUser = user => dispatch => {
     return UserApiUtil.createUser(user)
-        .then(createdUser => dispatch(receiverUser(user)))
+        .then(createdUser => dispatch(receiveUser(user)))
 }
 
 export const updateUser = user => dispatch => {

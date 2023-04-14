@@ -14,10 +14,10 @@ import SignupForm from './signup_form';
 //     };
 // };
 
-const mapStateToProps = (state) => ({
-    loggedIn: state?.session?.isAuthenticated,
-    errors: state?.errors?.signup,
-});
+// const mapStateToProps = (state) => ({
+//     loggedIn: state?.session?.isAuthenticated,
+//     errors: state?.errors?.signup,
+// });
 
 
 const mapDispatchToProps = dispatch => ({
@@ -32,4 +32,4 @@ const mapDispatchToProps = dispatch => ({
 //     };
 // };
 
-export default connect(mapStateToProps, mapDispatchToProps)(SignupForm);
+export default connect(null, mapDispatchToProps)(SignupForm);
