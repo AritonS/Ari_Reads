@@ -26,23 +26,4 @@ class Splash extends React.Component {
     }
 }
 
-// const Splash = ({ currentUser, logout }) => {
-//     const loggedIn = () => (
-//         <div>
-//             <h1>Welcome, {currentUser.username}!</h1>
-//             <button onClick={logout}>Logout</button>
-//         </div>
-//     );
-
-//     const loggedOut = () => (
-//         <div>
-//             <Link to="/signup">Sign Up</Link>
-//             <br />
-//             <Link to="/login">Log In</Link>
-//         </div>
-//     );
-
-//     return currentUser ? loggedIn() : loggedOut();
-// };
-
 export default Splash;

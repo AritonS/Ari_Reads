@@ -16,7 +16,7 @@ export default ({ currentUser, logout }) => {
 
     return (
         <header className='nav-bar'>
-            <h1 className='logo'>ARI READS</h1>
+            <h1 className='logo'>Welcome to Ari Reads</h1>
             <div>
                 {display}
             </div>

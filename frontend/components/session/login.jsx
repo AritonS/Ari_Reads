@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
 class Login extends React.Component {
     constructor(props) {
@@ -18,7 +18,7 @@ class Login extends React.Component {
         this.props.login(user);
     }
 
-    update(field) {
+    handleInput(field) {
         return (e) => this.setState({ [field]: e.currentTarget.value });
     }
 
@@ -27,40 +27,26 @@ class Login extends React.Component {
             return <Redirect to="/" />;
         }
 
-        const errors = this.props.errors ? this.props.errors.map((error, idx) => (
-            <li key={`error-${idx}`}>{error}</li>
-        )) : null;
-
-        const formHeader = this.props.formType === "login" ? "Log in" : "Sign up";
-        const altFormLink = this.props.formType === "login" ? "/signup" : "/login";
-        const altFormText = this.props.formType === "login" ? "Sign up" : "Log in";
-
         return (
-            <div>
-                <h2>{formHeader}</h2>
-                <form onSubmit={this.handleSubmit}>
-                    <label>
-                        Username:
+            <div className='session-form'>
+                <h2>Log In</h2>
+                <form>
+                    <label>Username:
                         <input
                             type="text"
                             value={this.state.username}
-                            onChange={this.update("username")}
+                            onChange={this.handleInput('username')}
                         />
                     </label>
-                    <br />
-                    <label>
-                        Password:
+                    <label>Password:
                         <input
                             type="password"
                             value={this.state.password}
-                            onChange={this.update("password")}
+                            onChange={this.handleInput('password')}
                         />
                     </label>
-                    <br />
-                    <input type="submit" value={formHeader} />
+                    <button onClick={this.handleSubmit}>Log In</button>
                 </form>
-                <Link to={altFormLink}>{altFormText}</Link>
-                <ul>{errors}</ul>
             </div>
         );
     }
