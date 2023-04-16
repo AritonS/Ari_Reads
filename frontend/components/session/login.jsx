@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
 
-class LoginForm extends React.Component {
+class Login extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -66,10 +66,4 @@ class LoginForm extends React.Component {
     }
 }
 
-LoginForm.defaultProps = {
-    processForm: (user) => {
-        console.log("Default processForm function called with user:", user);
-    },
-};
-
-export default LoginForm;
+export default Login;

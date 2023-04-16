@@ -1,6 +1,7 @@
+import React from 'react';
 import { connect } from 'react-redux';
 import List from './list';
-import { fetchBooks, deleteBook } from '../actions/book_actions';
+import { fetchBooks, deleteBook } from '../../actions/book_actions';
 
 const mapStateToProps = state => {
     return {
