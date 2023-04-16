@@ -20,12 +20,11 @@ class Signup extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         this.props.createNewUser(this.state)
-        .then(() => this.props.history.push('/'))
     }
 
     render() {
         return (
-            <div className='session-form'>
+            <div className='signup-form'>
                 <h2>Sign Up</h2>
                 <form>
                     <label>Username:
@@ -35,6 +34,7 @@ class Signup extends React.Component {
                             onChange={this.handleInput('username')}
                         />
                     </label>
+                    <br />
                     <label>Email:
                         <input 
                             type="text"
@@ -42,6 +42,7 @@ class Signup extends React.Component {
                             onChange={this.handleInput('email')}
                         />
                     </label>
+                    <br />
                     <label>Password:
                         <input 
                             type="password"
@@ -49,6 +50,7 @@ class Signup extends React.Component {
                             onChange={this.handleInput('password')}
                         />
                     </label>
+                    <p>Passwords must be at least 6 characters.</p>
                     <button onClick={this.handleSubmit}>Sign Up</button>
                 </form>
             </div>

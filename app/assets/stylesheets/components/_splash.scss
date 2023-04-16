@@ -1,0 +1,93 @@
+// Import variables from _signup.scss
+@import '_signup';
+
+// Additional variables
+$main-bg-color: #f6f6f6;
+
+// Main styles
+.splash {
+    font-family: $font-family;
+    background-color: $main-bg-color;
+    color: $font-color;
+
+    .header {
+        background-color: #fff;
+        padding: 10px 0;
+        border-bottom: 1px solid $border-color;
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .logo {
+                img {
+                    width: 200px;
+                }
+            }
+
+            .search {
+                flex-grow: 1;
+                margin-left: 20px;
+
+                input {
+                    width: 100%;
+                    padding: 5px 10px;
+                    font-size: 14px;
+                    border: 1px solid $border-color;
+                    border-radius: 4px;
+                }
+            }
+
+            .navigation {
+                display: flex;
+                align-items: center;
+
+                a {
+                    color: $font-color;
+                    text-decoration: none;
+                    margin-left: 20px;
+                    font-size: 14px;
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+    }
+
+    .main-content {
+        max-width: 1200px;
+        margin: 40px auto;
+        display: flex;
+
+        .left-sidebar,
+        .right-sidebar {
+            width: 300px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .left-sidebar {
+            margin-right: 20px;
+        }
+
+        .right-sidebar {
+            margin-left: 20px;
+        }
+
+        .content {
+            flex-grow: 1;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin: 0 20px;
+        }
+    }
+}

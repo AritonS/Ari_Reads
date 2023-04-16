@@ -28,7 +28,7 @@ class Login extends React.Component {
         }
 
         return (
-            <div className='session-form'>
+            <div className='login-form'>
                 <h2>Log In</h2>
                 <form>
                     <label>Username:
@@ -38,6 +38,7 @@ class Login extends React.Component {
                             onChange={this.handleInput('username')}
                         />
                     </label>
+                    <br />
                     <label>Password:
                         <input
                             type="password"

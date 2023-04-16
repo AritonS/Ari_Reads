@@ -1,0 +1,60 @@
+// Import variables and mixins from _signup.scss
+@import '_signup';
+
+// Main styles
+.login-form {
+    font-family: $font-family;
+    width: 100%;
+    max-width: 450px;
+    margin: 50px auto;
+    border: 1px solid $border-color;
+    border-radius: 5px;
+    background-color: #fff;
+
+    h2 {
+        color: $font-color;
+        font-size: 24px;
+        font-weight: bold;
+        padding: 20px 0;
+        text-align: center;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        padding: 0 30px 20px;
+
+        label {
+            margin-bottom: 5px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        input {
+            margin-bottom: 20px;
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid $border-color;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            @include button-styles($primary-color, #fff);
+            margin-bottom: 10px;
+        }
+
+        .forgot-password {
+            font-size: 14px;
+            text-align: right;
+
+            a {
+                text-decoration: none;
+                color: $primary-color;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}
