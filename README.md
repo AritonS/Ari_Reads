@@ -1,5 +1,5 @@
 # AriREADME
-## Background
+## Overview
 
 AriReads is a reading list management tool. Secure user authentication allows users to sign up, log in, and log out. Users can add books to their list by including the book title, author, their reading status (Want to Read, Currently Reading, Finished Reading), and optionally include the total number of pages and the page they are currently on.
 
