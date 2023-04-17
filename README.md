@@ -18,6 +18,7 @@ AriReads was built using a Rails backend and React/Redux frontend.
 - Users can create an account
 - Users can sign-in to manage their reading list
 
-## User's List (functionality in progress)
+## User's List
+Functionality in progress
 - Users can add books to their list through a form that takes the book title, author, status (Want to Read, Currently Reading, Finished Reading), total pages (optional), and the user's current page (optional).
 - Users can edit the book status and their current page.
